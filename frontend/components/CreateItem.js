@@ -44,6 +44,10 @@ export default class CreateItem extends Component {
                     <Form onSubmit={(e) => this.onFormSubmit(e, createItem)}>
                         <ErrorMessage error={error}/>
                         <fieldset disabled={loading} aria-busy={loading}>
+                                <label htmlFor="file">
+                                    Title
+                                    <input type="file" id="file" name="file" placeholder="Upload an image" required onChange={this.uploadFile}/>                        
+                                </label>
                                 <label htmlFor="title">
                                     Title
                                     <input type="text" id="title" name="title" placeholder="Title" required value={this.state.title} onChange={this.handleChange}/>                        
@@ -64,6 +68,25 @@ export default class CreateItem extends Component {
         );
     }
 
+    uploadFile = async e => {
+        const files = e.target.files;
+        const data = new FormData();
+
+        data.append("file", files[0]);
+        data.append("upload_preset", "sickfits");
+
+        const res = await fetch("https://api.cloudinary.com/v1_1/dgfogulkz/image/upload", {
+            method: "POST",
+            body: data
+        });
+
+        const file = await res.json();
+        this.setState({
+            image: file.secure_url,
+            largeImage: file.eager[0].secure_url
+        });
+    }
+
     handleChange = e => {
         let {name, value, type } = e.target;
         value = type === "number" ? parseFloat(value) : value;       
@@ -72,6 +95,7 @@ export default class CreateItem extends Component {
 
     onFormSubmit = async (e, createItem) => {
         e.preventDefault();
+
         const res = await createItem();
         Router.push({
             pathname: "/item",
