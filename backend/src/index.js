@@ -3,7 +3,8 @@ const createServer = require("./createServer");
 const db = require("./db");
 
 const server = createServer();
-server.start(
+console.log(process.env.FRONTEND_URL);
+server.start(    
     {
         cors: {
             credentials: true,

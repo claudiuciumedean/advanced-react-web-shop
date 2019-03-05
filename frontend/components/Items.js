@@ -24,8 +24,7 @@ export default class Items extends Component {
                                     <p>Error: {error.message}</p>
                                 );
                             }
-
-                            console.log(data);
+                            
                             return (
                                 <ItemsList>
                                   {data.items.map(item => <Item item={item} key={item.id}/> )}  
