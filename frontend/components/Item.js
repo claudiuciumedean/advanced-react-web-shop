@@ -4,34 +4,35 @@ import Link from "next/link";
 
 import formatMoney from "../lib/formatMoney"; 
 
+import DeleteItem from "./DeleteItem";
 import Title from "./styles/Title";
 import ItemStyles from "./styles/ItemStyles";
 import PriceTag from "./styles/PriceTag";
 
 export default class Item extends Component {
     render() {
-        const { item } = this.props;
+        const { id, image, title, price } = this.props.item ;
 
         return (
             <ItemStyles>
-                {item.image && <img src={item.image} alt={item.title}></img>}
+                {image && <img src={image} alt={title}></img>}
                 <Title>
-                    <Link href={{ pathname: "/item", query: { id: item.id } }}>
-                        <a>{item.title}</a>
+                    <Link href={{ pathname: "/item", query: { id: id } }}>
+                        <a>{title}</a>
                     </Link>                
                 </Title>
                 <PriceTag>
-                    {formatMoney(item.price)}
+                    {formatMoney(price)}
                 </PriceTag>
                 <div className="buttonList">
                     <Link href={{
                         pathname: "update",
-                        query: { id: item.id }
+                        query: { id: id }
                     }}>
                         <a>Edit </a>
                     </Link>
                     <button>Add To Cart</button>
-                    <button>Delete</button>
+                    <DeleteItem id={id}>Delete Item</DeleteItem>
                 </div>
             </ItemStyles>
         );

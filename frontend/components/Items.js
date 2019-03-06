@@ -5,6 +5,31 @@ import styled from "styled-components";
 
 import Item from "./Item";
 
+const Center = styled.div`
+    text-align:center;
+`;
+
+const ItemsList = styled.div`
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap:6rem;
+    max-width:${props => props.theme.maxWidth};
+    margin:0 auto;
+`;
+
+const ALL_ITEMS_QUERY = gql`
+    query ALL_ITEMS_QUERY {
+        items {
+            id
+            title
+            price
+            description
+            image
+            largeImage
+        }
+    }
+`;
+
 export default class Items extends Component {
     render() {
         return (
@@ -38,27 +63,4 @@ export default class Items extends Component {
     }
 }
 
-const Center = styled.div`
-    text-align:center;
-`;
-
-const ItemsList = styled.div`
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    grid-gap:6rem;
-    max-width:${props => props.theme.maxWidth};
-    margin:0 auto;
-`;
-
-const ALL_ITEMS_QUERY= gql`
-    query ALL_ITEMS_QUERY {
-        items {
-            id
-            title
-            price
-            description
-            image
-            largeImage
-        }
-    }
-`;
+export { ALL_ITEMS_QUERY };
