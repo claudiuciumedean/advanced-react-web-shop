@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { Mutation, Query } from "react-apollo";
 import gql from "graphql-tag";
-import Router from "next/router";
 
 import Form from "./styles/Form";
 import ErrorMessage from "./ErrorMessage";
-
-import formatMoney from "../lib/formatMoney";
 
 const SINGLE_ITEM_QUERY = gql`
     query SINGLE_ITEM_QUERY($id: ID!) {
@@ -97,15 +94,12 @@ export default class UpdateItem extends Component {
 
     onFormSubmit = async (e, updateItem) => {
         e.preventDefault();
-        console.log(this.props)
         const res = await updateItem({
             variables: {
                 id: this.props.id,
                 ...this.state
             }
         });
-
-        console.log(res);
     }
 }
 
