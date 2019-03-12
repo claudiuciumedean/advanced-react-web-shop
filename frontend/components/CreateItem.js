@@ -6,8 +6,6 @@ import Router from "next/router";
 import Form from "./styles/Form";
 import ErrorMessage from "./ErrorMessage";
 
-import formatMoney from "../lib/formatMoney";
-
 const CREATE_ITEM_MUTATION = gql`
     mutation CREATE_ITEM_MUTATION (
         $title: String!
