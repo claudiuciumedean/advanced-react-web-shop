@@ -23,7 +23,7 @@ export default class DeleteItem extends Component {
 
     onDelete(deleteItem) {
         if(confirm("Are you sure you want to delete this item?")) {
-            deleteItem();
+            deleteItem().catch(err => alert(err));
         }
     }
 
