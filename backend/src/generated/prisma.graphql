@@ -1,5 +1,5 @@
 # source: https://eu1.prisma.sh/claudiuciumedean-7e725b/sick-fits/dev
-# timestamp: Tue Mar 12 2019 14:39:55 GMT+0100 (Central European Standard Time)
+# timestamp: Wed Mar 13 2019 13:35:45 GMT+0100 (Central European Standard Time)
 
 type AggregateItem {
   count: Int!
@@ -427,7 +427,8 @@ enum Permission {
   USER
   ITEMCREATE
   ITEMDELETE
-  PREMISSIONUPDATE
+  ITEMUPDATE
+  PERMISSIONUPDATE
 }
 
 type Query {

@@ -21,6 +21,9 @@ const Table = styled.table`
       }
     }
   }
+  label {
+    display: block;
+  }
   tr {
     &:hover {
       background: ${props => props.theme.offWhite};
