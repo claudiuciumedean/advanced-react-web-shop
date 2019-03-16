@@ -5,13 +5,15 @@ import Link from "next/link";
 import formatMoney from "../lib/formatMoney"; 
 
 import DeleteItem from "./DeleteItem";
+import AddToCart from "./AddToCart";
+
 import Title from "./styles/Title";
 import ItemStyles from "./styles/ItemStyles";
 import PriceTag from "./styles/PriceTag";
 
 export default class Item extends Component {
     render() {
-        const { id, image, title, price } = this.props.item ;
+        const { id, image, title, price } = this.props.item;
 
         return (
             <ItemStyles>
@@ -31,7 +33,7 @@ export default class Item extends Component {
                     }}>
                         <a>Edit </a>
                     </Link>
-                    <button>Add To Cart</button>
+                    <AddToCart id={id}/>
                     <DeleteItem id={id}>Delete Item</DeleteItem>
                 </div>
             </ItemStyles>
