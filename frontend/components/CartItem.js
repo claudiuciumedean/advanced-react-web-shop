@@ -13,10 +13,10 @@ const CartItemStyles = styled.li`
 `;
 
 const CartItem = ({ cartItem }) => {
-    if(cartItem.item) {
+    if(!cartItem.item) {
         return (
             <CartItemStyles>
-                <p>This item has beem</p>
+                <p>This item has been removed</p>
                 <RemoveFromCart id={cartItem.id} />
             </CartItemStyles>
         );
