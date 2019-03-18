@@ -37,7 +37,7 @@ export default class AutoComplete extends Component {
         loading: false
     };
 
-    render() {
+    render() { 
         resetIdCounter();
 
         return (
