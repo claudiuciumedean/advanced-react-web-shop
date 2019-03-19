@@ -31,6 +31,7 @@ const OrderStyles = styled.div`
     img {
       width: 100%;
       height: 100%;
+      min-height: 20rem;
       object-fit: cover;
     }
   }
