@@ -19,7 +19,7 @@ export default class RequestReset extends Component {
         return (
             <Mutation mutation={REQUEST_RESET_MUTATION} variables={this.state}>
                 {(reset, {error, loading, called}) => (          
-                <Form method="POST" onSubmit={e => this.onFormSubmit(e, reset)}>
+                <Form method="POST" onSubmit={e => this.onFormSubmit(e, reset)} data-test="form">
                     <fieldset disabled={loading} aria-busy={loading}>                    
                         <h2>Request a password reset</h2>
 
@@ -49,3 +49,5 @@ export default class RequestReset extends Component {
         this.setState({ email: "" });
     }
 }
+
+export { REQUEST_RESET_MUTATION };
