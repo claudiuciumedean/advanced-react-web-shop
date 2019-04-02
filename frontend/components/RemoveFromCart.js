@@ -55,3 +55,5 @@ export default class RemoveFromCart extends Component {
         id: PropTypes.string.isRequired
     }
 }
+
+export { REMOVE_FROM_CART_MUTATION };
